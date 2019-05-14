@@ -2,7 +2,7 @@
 /* CSS Document */
 
 body {
-  background-color: #6699cc;
+  background-color: #183F59;
 }
 
 .headheight {
@@ -22,24 +22,25 @@ body {
 }
 
 .form-control {
-  background-color: #99ccff;
+  background-color: #316282;
   border: 0px;
-  color: #fff;
+  color: #FFF;
 }
 
 .btn {
-  background-color: #99ccff;
+  background-color: #316282;
   border: 0px;
   padding: 9px 12px;
 }
 
 .daohangyanse {
-  background-color: #99cccc;
+  background-color: #356F95;
   border: none;
+
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #fff;
+  color: #FFF;
   font-family: "Motiva Sans", Sans-serif;
 }
 
@@ -48,25 +49,25 @@ body {
 }
 
 .gutter_header {
-  color: #666699;
+  color: #66c0f4;
 }
 
 .list-group-item {
-  background-color: #6699cc;
-  color: #666699;
+  background-color: #183F59;
+  color: #66c0f4;
   font-size: 13px;
   font-family: "Motiva Sans", Sans-serif;
   border: 0px;
 }
 
 .bs:hover {
-  color: #fff;
+  color: #FFF;
 }
 
 .dibu {
   height: 120px;
   background-color: #101822;
-  color: #8f98a0;
+  color: #8F98A0;
   text-align: center;
   padding-top: 50px;
   padding-left: 150px;
