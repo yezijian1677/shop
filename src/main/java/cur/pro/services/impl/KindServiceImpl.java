@@ -6,10 +6,7 @@ import cur.pro.entity.Tag;
 import cur.pro.entity.dto.GameDTO;
 import cur.pro.mapper.*;
 import cur.pro.services.KindService;
-import cur.pro.utils.MsgCenter;
-import cur.pro.utils.PageUtil;
-import cur.pro.utils.RedisUtil;
-import cur.pro.utils.Result;
+import cur.pro.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +32,10 @@ public class KindServiceImpl implements KindService {
     private TagmapperMapper tagmapperMapper;
     @Autowired
     private RedisUtil<Kind> redisUtil;
+    @Autowired
+    private RedisPoolUtil redisPoolUtil;
+    @Autowired
+    private JsonUtil jsonUtil;
 
     public String getNameById(Integer id) {
         Kind kind = kindMapper.selectById(id);
@@ -45,11 +46,11 @@ public class KindServiceImpl implements KindService {
     }
 
     public Result<Kind> getAll() {
-        List<Kind> kinds = redisUtil.lall(RedisUtil.KINDS, Kind.class);
+        List<Kind> kinds =  jsonUtil.string2Obj(redisPoolUtil.get("kinds"),List.class,Kind.class);;
         // 如果缓存中没有，从数据库中查询，并且添加到缓存中
         if (kinds == null || kinds.size() == 0) {
             List<Kind> data = kindMapper.selectAll();
-            redisUtil.rpushObject(RedisUtil.KINDS, Kind.class, data.toArray());
+            redisPoolUtil.setEx("kinds", jsonUtil.obj2String(data), 60*10);
             return Result.success(data);
         }
         return Result.success(kinds);
