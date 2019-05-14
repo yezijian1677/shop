@@ -5,9 +5,7 @@ import cur.pro.entity.Tag;
 import cur.pro.entity.dto.GameDTO;
 import cur.pro.mapper.*;
 import cur.pro.services.GameService;
-import cur.pro.utils.MsgCenter;
-import cur.pro.utils.RedisUtil;
-import cur.pro.utils.Result;
+import cur.pro.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +28,10 @@ public class GameServiceImpl implements GameService {
     private ImgMapper imgMapper;
     @Autowired
     private RedisUtil<GameDTO> redisUtil;
+    @Autowired
+    private RedisPoolUtil redisPoolUtil;
+    @Autowired
+    private JsonUtil jsonUtil;
 
     public Result<GameDTO> getById(Integer id) {
         Game game = gameMapper.selectById(id);
@@ -47,7 +49,11 @@ public class GameServiceImpl implements GameService {
     }
 
     public Result<List<GameDTO>> getRandomGames() {
-            List<GameDTO> res;
+        // 先从缓存中取数据，如果没有再自动生成
+        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get("everyday"),List.class,GameDTO.class);
+
+        if (res == null || res.size() == 0) {
+
             List<Game> allgames = gameMapper.selectByStat(Game.STAT_OK);
             int count = allgames.size();
             Set<Integer> numSet = new HashSet<Integer>();
@@ -66,25 +72,31 @@ public class GameServiceImpl implements GameService {
                 games = allgames;
             }
             res = paresGameDTO(games);
-
+            // 将数据存入缓存中
+            int tmp = 1000 * 30;
+            redisPoolUtil.setEx("everyday", jsonUtil.obj2String(res), tmp);
+        }
         return Result.success(res);
     }
 
     public Result<List<GameDTO>> newestGames() {
-
-            List<GameDTO> res;
+        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get("newestgame"),List.class,GameDTO.class);
+        if (res == null || res.size() == 0) {
             List<Game> games = gameMapper.selectByStatOrderByDate(Game.STAT_OK);
             res = paresGameDTO(games);
-
-            return Result.success(res);
+            redisPoolUtil.setEx("newestgame", jsonUtil.obj2String(res), 60*10);
+        }
+        return Result.success(res);
     }
 
     public Result<List<GameDTO>> preUpGames() {
-            List<GameDTO> res;
+        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get("preupgames"),List.class,GameDTO.class);
+        if (res == null || res.size() == 0) {
             List<Game> games = gameMapper.selectByStatOrderByDate(Game.STAT_PRE);
             res = paresGameDTO(games);
-
-            return Result.success(res);
+            redisPoolUtil.setEx("preupgames", jsonUtil.obj2String(res), 60*10);
+        }
+        return Result.success(res);
     }
 
     public Result<List<GameDTO>> search(String info) {

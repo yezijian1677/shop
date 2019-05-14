@@ -8,6 +8,7 @@ import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.codehaus.jackson.type.JavaType;
 import org.codehaus.jackson.type.TypeReference;
+import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 
@@ -15,6 +16,7 @@ import java.text.SimpleDateFormat;
  * Created by geely
  */
 @Slf4j
+@Component
 public class JsonUtil {
 
     private static ObjectMapper objectMapper = new ObjectMapper();

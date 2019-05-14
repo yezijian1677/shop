@@ -2,12 +2,14 @@ package cur.pro.utils;
 
 import cur.pro.utils.RedisPool;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 
 /**
  * Created by geely
  */
 @Slf4j
+@Component
 public class RedisPoolUtil {
 
 
