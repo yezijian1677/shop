@@ -102,18 +102,6 @@
                     </a>
                 </div>
             </div>
-            <div class="row">
-                <div class="tit tit_1"> 休 闲 一 下</div>
-            </div>
-
-            <div class="all_bg">
-                <div id="allcanvas">
-                    <img src="img/fish/play.png" id="playbtn" onclick="game()">
-                    <canvas id="canvas1" width="800" height="600"></canvas>
-                    <canvas id="canvas2" width="800" height="600"></canvas>
-                </div>
-            </div>
-
 
             <div class="row zx">
                 <div class="col-md-8">
@@ -133,6 +121,5 @@
     </div>
 </div>
 <%@ include file="common/bottom.jsp" %>
-<%@ include file="fishjs.jsp" %>
 </body>
 </html>
