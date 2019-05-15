@@ -41,8 +41,8 @@
     <br>
     <h3 style="color:#fff" align="left">交付</h3>
     <div style="background-color:#000;padding:10px 40px 10px 100px;">
-        <h4 style="color:#FFF"><a href="#"><img src="/img/static/logo.jpg" width="61" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-            所有电子商品将会经有WEPLAY桌面应用程序递送给您</h4>
+        <h4 style="color:#FFF"><a href="#"><img src="/img/logo-dark.png" width="61" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            所有电子商品将会经有EasyGo桌面应用程序递送给您</h4>
     </div>
     <br/>
     <br/>

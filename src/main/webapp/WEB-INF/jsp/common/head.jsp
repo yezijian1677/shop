@@ -3,9 +3,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 上述三个标签需要放到最前边 -->
-<meta name="description" content="WePlay">
+<meta name="description" content="EasyGo">
 <meta name="author" content="cie">
-<link rel="icon" href="/smile.ico" type="image/x-icon" >
+<link rel="icon" href="/favicon.ico" type="image/x-icon" >
 <!-- 引入 Bootstrap的css文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"

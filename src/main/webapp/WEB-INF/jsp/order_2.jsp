@@ -48,7 +48,7 @@
         <div class="col-xs-2"></div>
         <div class="col-xs-6">
             <table class="tishi" align="center">
-                <tr><h3 style="color:#FFF">在WePlay上购物</h3></tr>
+                <tr><h3 style="color:#FFF">在EasyGo上购物</h3></tr>
                 <tr><h4 style="color:#FFF">当您提交您的支付信息时，您的资料将得到具有安全套接层（SSL）技术认证的数字证书的保护。
                     当您完成此笔交易后，我们将向您发送一封电子邮件来确认购物收据。</h4></tr>
                 <tr><h3 style="color:#FFF">客户提示</h3></tr>

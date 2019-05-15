@@ -5,7 +5,7 @@
         <div class="col-md-offset-3">
             <div class="navbar-header">
                 <a href="/">
-                    <img alt="Brand" src="/img/logo.jpg" width="90" height="60">
+                    <img alt="Brand" src="/img/logo-dark.png" width="90" height="60">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

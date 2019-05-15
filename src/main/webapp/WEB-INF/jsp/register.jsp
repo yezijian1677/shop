@@ -18,7 +18,7 @@
             <div class="row zczt">
                 <div class="col-xs-offset-1 col-xs-5" id="regist_1">
                     <div class="row zczt">
-                        创建 WePlay 用户名称：<br/>
+                        创建 EasyGo 用户名称：<br/>
                         <input class="inputcolor" type="text" id="yonghuming"><br/>
                     </div>
                     <div class="row zczt">
@@ -32,7 +32,7 @@
                     <div class="row zczt">
                         请输入邮件地址：<br/>
                         <input class="inputcolor" type="text" id="email"><br/>
-                        WePlay 将向此帐户发送一封用于确认的电子邮件。请通过邮件中的验证码验证您的 WePlay 电子邮件帐户。
+                        EasyGo 将向此帐户发送一封用于确认的电子邮件。请通过邮件中的验证码验证您的 EasyGo 电子邮件帐户。
                     </div>
                     <div class="row zczt">
                         请输入您的手机号:<br/>
@@ -66,7 +66,7 @@
                             获取自动游戏更新以及更多！
                         </li>
                     </ul>
-                    <img src="/img/login.png"/>
+                    <img src="/img/login-dark.png"/>
                 </div>
             </div>
         </div>

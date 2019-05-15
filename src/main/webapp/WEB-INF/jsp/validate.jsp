@@ -53,7 +53,7 @@
                             获取自动游戏更新以及更多！
                         </li>
                     </ul>
-                    <img src="/img/login.png"/>
+                    <img src="/img/login-dark.png"/>
                 </div>
             </div>
         </div>

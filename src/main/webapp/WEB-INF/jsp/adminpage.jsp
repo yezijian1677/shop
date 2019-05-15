@@ -1,19 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Weplay后台管理系统</title>
+    <title>EasyGo后台管理系统</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/adminpage.js"></script>
     <link type="text/css" rel="stylesheet" href="/css/adminpage.css"/>
-    <link rel="icon" href="/smile.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 <div class="top"></div>
 <div id="header">
-    <div class="logo">Weplay后台管理系统</div>
+    <div class="logo">EasyGo后台管理系统</div>
 </div>
 <div id="content">
     <div class="left_menu">
@@ -244,7 +244,7 @@
 </div>
 
 <div class="bottom"></div>
-<div id="footer"><p>最终所有权归<a href="" target="_blank">Weplay</a>所有</p></div>
+<div id="footer"><p>最终所有权归<a href="" target="_blank">EasyGo</a>所有</p></div>
 <script>navList(12);</script>
 </body>
 </html>
