@@ -50,7 +50,7 @@ public class GameServiceImpl implements GameService {
 
     public Result<List<GameDTO>> getRandomGames() {
         // 先从缓存中取数据，如果没有再自动生成
-        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get("everyday"),List.class,GameDTO.class);
+        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get(redisUtil.EVERYDAY),List.class,GameDTO.class);
 
         if (res == null || res.size() == 0) {
 
@@ -74,27 +74,27 @@ public class GameServiceImpl implements GameService {
             res = paresGameDTO(games);
             // 将数据存入缓存中
             int tmp = 1000 * 30;
-            redisPoolUtil.setEx("everyday", jsonUtil.obj2String(res), tmp);
+            redisPoolUtil.setEx( redisUtil.EVERYDAY, jsonUtil.obj2String(res), tmp);
         }
         return Result.success(res);
     }
 
     public Result<List<GameDTO>> newestGames() {
-        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get("newestgame"),List.class,GameDTO.class);
+        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get(redisUtil.NEWESTGAME),List.class,GameDTO.class);
         if (res == null || res.size() == 0) {
             List<Game> games = gameMapper.selectByStatOrderByDate(Game.STAT_OK);
             res = paresGameDTO(games);
-            redisPoolUtil.setEx("newestgame", jsonUtil.obj2String(res), 60*10);
+            redisPoolUtil.setEx(redisUtil.NEWESTGAME, jsonUtil.obj2String(res), 60*10);
         }
         return Result.success(res);
     }
 
     public Result<List<GameDTO>> preUpGames() {
-        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get("preupgames"),List.class,GameDTO.class);
+        List<GameDTO> res = jsonUtil.string2Obj(redisPoolUtil.get(redisUtil.PRE_UP_GAMES),List.class,GameDTO.class);
         if (res == null || res.size() == 0) {
             List<Game> games = gameMapper.selectByStatOrderByDate(Game.STAT_PRE);
             res = paresGameDTO(games);
-            redisPoolUtil.setEx("preupgames", jsonUtil.obj2String(res), 60*10);
+            redisPoolUtil.setEx(redisUtil.PRE_UP_GAMES, jsonUtil.obj2String(res), 60*10);
         }
         return Result.success(res);
     }

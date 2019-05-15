@@ -45,6 +45,11 @@ public class TagServiceImpl implements TagService {
         return Result.success(tagMapper.selectAll());
     }
 
+    /**
+     * 纯粹添加一个标签
+     * @param name
+     * @return
+     */
     public Result<Tag> addTag(String name) {
         Tag tag = new Tag();
         tag.setName(name);
@@ -55,6 +60,13 @@ public class TagServiceImpl implements TagService {
         }
     }
 
+
+    /**
+     * 为一个游戏添加标签
+     * @param name
+     * @param game
+     * @return
+     */
     @Transactional
     public Result addTag(String name, Integer game) {
         // 如果没有这个游戏，就返回404
@@ -73,6 +85,12 @@ public class TagServiceImpl implements TagService {
         return Result.fail(MsgCenter.ERROR);
     }
 
+    /**
+     * 新建一个标签，并且添加该标签给该游戏
+     * @param tag
+     * @param game
+     * @return
+     */
     public Result addTag(Integer tag, Integer game) {
         // 如果没有这个游戏，就返回404
         if (gameMapper.selectById(game) == null) {

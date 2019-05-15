@@ -15,6 +15,7 @@ public class GameController extends AbstractController {
     @Autowired
     private GameService gameService;
 
+
     @GetMapping(value = "{id}")
     public String gameInfo(@PathVariable(value = "id") Integer id) {
         if (!gameService.exists(id)) {
@@ -24,6 +25,11 @@ public class GameController extends AbstractController {
         return "gameInfo";
     }
 
+    /**
+     * 根据游戏id获取游戏详情
+     * @param id
+     * @return
+     */
     @PostMapping(value = "{id}")
     @ResponseBody
     public Result selectById(@PathVariable(value = "id") Integer id) {

@@ -44,13 +44,16 @@ public class CommonController extends AbstractController {
     @PostMapping(value = "login")
     @ResponseBody
     public Result login(String username, String password,
-                        @RequestParam(value = "remember", defaultValue = "false", required = false) boolean remember,
+                        @RequestParam(value = "remember",
+                        defaultValue = "false",
+                        required = false) boolean remember,
                         HttpServletResponse response) {
         String referer = getReferer();
         // 如果用户已经登陆，那么跳转到之前的页面
         if (userHolder.getUser() != null && userHolder.getUser().getStat().equals(User.STAT_OK)) {
             return Result.fail(MsgCenter.OK, referer);
         }
+
         Result result = userService.login(username, password, remember, this.getRemoteIp(), this.getUserAgent());
         if (result.isSuccess()) {
             Map<String, String> data = new HashMap<String, String>();
@@ -108,7 +111,7 @@ public class CommonController extends AbstractController {
     }
 
     /**
-     * 获取每日推荐，随机选取5个游戏，每日生成一次
+     * 获取每日推荐，随机选取5个游戏，每30s生成一次
      *
      * @return
      */
@@ -118,7 +121,10 @@ public class CommonController extends AbstractController {
         return gameService.getRandomGames();
     }
 
-
+    /**
+     * 购物车界面
+     * @return
+     */
     @GetMapping(value = "shoppingcart")
     public String shoppingcart() {
         return "shoppingcart";

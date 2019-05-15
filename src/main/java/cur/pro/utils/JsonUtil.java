@@ -12,9 +12,6 @@ import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 
-/**
- * Created by geely
- */
 @Slf4j
 @Component
 public class JsonUtil {

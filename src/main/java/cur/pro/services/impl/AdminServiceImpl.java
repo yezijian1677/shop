@@ -229,7 +229,7 @@ public class AdminServiceImpl implements AdminService {
         kind = new Kind();
         kind.setName(name);
         if (1 == kindMapper.insert(kind)) {
-            redisPoolUtil.setEx("kinds", jsonUtil.obj2String(kind), 60*10);   // 添加到缓存中
+            redisPoolUtil.setEx("kinds", jsonUtil.obj2String(kind), 60*10);   // 添加到缓存中 60s刷新一次
             return Result.success();
         } else {
             return Result.fail(MsgCenter.ERROR);

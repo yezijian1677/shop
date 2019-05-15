@@ -6,7 +6,7 @@
     <link href="/css/self.css" rel="stylesheet">
     <script src="/js/biaoqian.js"></script>
     <script src="/js/index.js"></script>
-    <title>We Play</title>
+    <title>EasyGo</title>
 </head>
 
 <body>

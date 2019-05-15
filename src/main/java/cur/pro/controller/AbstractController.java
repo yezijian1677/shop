@@ -25,10 +25,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 基础controller,各个web项目应该在此基础上扩展自己的基础controller.
- *
- * @author Boren You
- * @date 2019/5/12 21:28
- * @since 1.0.0
  */
 public abstract class AbstractController {
 
